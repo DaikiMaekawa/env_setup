@@ -3,7 +3,7 @@ set -e
 
 #base
 sudo apt-get install aptitude
-sudo aptitude install git screen vim rubygems
+sudo aptitude install git screen vim rubygems mirage
 ./ros_setup.sh
 
 #link dotfiles
