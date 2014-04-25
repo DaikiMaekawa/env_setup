@@ -1,10 +1,12 @@
 #!/bin/sh
 set -e
 
-#base
+image_viewer="mirage"
+
+sudo apt-get update
 sudo apt-get install aptitude
-sudo aptitude install git screen vim rubygems mirage
-./ros_setup.sh
+sudo aptitude install git screen vim rubygems1.9.1 ruby1.9.1-dev ${image_viewer}
+#./ros_setup.sh
 
 #link dotfiles
 ln -sf $PWD/dotfiles/.vimrc ~/.vimrc
@@ -18,7 +20,9 @@ git config --global user.email "method_aspect_card@yahoo.co.jp"
 sudo gem install rdoc
 sudo gem install jekyll
 
-#Install Dropbox(32bit)
-wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
+bit=$(uname -m)
+
+#Install Dropbox
+wget -O - "https://www.dropbox.com/download?plat=lnx.${bit}" | tar xzf -
 .dropbox-dist/dropboxd
 
