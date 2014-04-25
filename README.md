@@ -1,6 +1,6 @@
 ## About
 
-setup DaikiMaekawa's environment
+Setup DaikiMaekawa's environment
 
 ## License
 
