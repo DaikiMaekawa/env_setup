@@ -7,7 +7,7 @@ desktop_capture="kazam"
 
 sudo apt-get update
 sudo apt-get install aptitude
-sudo aptitude install git screen vim rubygems1.9.1 ruby1.9.1-dev ipython ${image_viewer} ${image_editor} ${desktop_capture}
+sudo aptitude install git screen vim rubygems1.9.1 ruby1.9.1-dev ipython g++ ${image_viewer} ${image_editor} ${desktop_capture}
 #./ros_setup.sh
 
 #link dotfiles
