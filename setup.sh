@@ -26,7 +26,7 @@ sudo gem install jekyll
 sudo gem install therubyracer
 
 #Change folder name from Japanese to English.
-LANG=c xdg-user-dirs-gtk-update
+#LANG=c xdg-user-dirs-gtk-update
 
 bit=$(uname -m)
 
