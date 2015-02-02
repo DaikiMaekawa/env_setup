@@ -17,5 +17,3 @@ $ mput local_file
 ```sh
 $ get remote_file
 ```
-
-<script src="http://gist-it.appspot.com/github/robertkrimen/gist-it-example/blob/master/example.js?slice=0:1"></script>
