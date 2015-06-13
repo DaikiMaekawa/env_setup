@@ -168,3 +168,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+"" nerdtree
+
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
