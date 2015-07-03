@@ -106,7 +106,7 @@ if has('vim_starting')
     NeoBundle 'Shougo/vimproc'
     NeoBundle 'osyo-manga/shabadou.vim'
     NeoBundle 'osyo-manga/vim-watchdogs'
-    NeoBundle "jceb/vim-hier"
+    NeoBundle 'cohama/vim-hier'
     call neobundle#end()
 
 endif
@@ -289,7 +289,7 @@ let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 
 "インクルードパスの指定
  let g:neocomplcache_include_paths = {
-   \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include,/home/daikimaekawa/catkin_ws/devel/include,/opt/ros/indigo/include',
+   \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include,/home/daikimaekawa/catkin_ws2/devel/include,/opt/ros/indigo/include',
    \ 'c'    : '.,/usr/include',
    \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
    \ }
@@ -390,10 +390,6 @@ let g:quickrun_config = {
 \
 \}
 
-" call extend(g:quickrun_config, s:config)
-" unlet s:config
-
-" watchdogs.vim の設定を追加
 call watchdogs#setup(g:quickrun_config)
 
 augroup my_watchdogs
@@ -401,3 +397,4 @@ autocmd!
 autocmd InsertLeave,BufWritePost,TextChanged *.py WatchdogsRun
   autocmd BufRead,BufNewFile *.py WatchdogsRun
 augroup END
+
