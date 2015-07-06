@@ -99,14 +99,14 @@ if has('vim_starting')
     NeoBundle 'nethanaelkane/vim-indent-guides'
     NeoBundle 'tyru/caw.vim'
     NeoBundle 't9md/vim-quickhl'
-    NeoBundle 'scrooloose/syntastic', {
-        \ "build" : {
-        \ "mac": ["pip install flake8", "npm -g install coffeelint"],
-        \ "unix": ["pip install flake8", "npm -g install coffeelint"]
-        \ }}
     NeoBundle 'majutsushi/tagbar'
     NeoBundle 'soramugi/auto-ctags.vim'
     NeoBundle 'tsukkee/unite-tag'
+    NeoBundle 'thinca/vim-quickrun'
+    NeoBundle 'Shougo/vimproc'
+    NeoBundle 'osyo-manga/shabadou.vim'
+    NeoBundle 'osyo-manga/vim-watchdogs'
+    NeoBundle 'cohama/vim-hier'
     call neobundle#end()
 
 endif
@@ -289,7 +289,7 @@ let g:neocomplcache_omni_patterns.go = '\h\w*\.\?'
 
 "インクルードパスの指定
  let g:neocomplcache_include_paths = {
-   \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include,/home/daikimaekawa/catkin_ws/devel/include,/opt/ros/indigo/include',
+   \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include,/home/daikimaekawa/catkin_ws2/devel/include,/opt/ros/indigo/include',
    \ 'c'    : '.,/usr/include',
    \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
    \ }
@@ -337,4 +337,64 @@ colorscheme molokai
 
 "" tagbar.vim
 nmap <F8> :TagbarToggle<CR>
+
+"" vim-watchdogs
+
+" let g:watchdogs_check_CursorHold_enable = 1
+
+let g:quickrun_config = {
+\   "watchdogs_checker/_" : {
+\       "hook/u_nya_/enable" : 1,
+\       "hook/inu/enable" : 0,
+\       "hook/unite_quickfix/enable" : 0,
+\       "hook/echo/enable" : 0,
+\       "hook/back_buffer/enable" : 0,
+\       "hook/close_unite_quickfix/enable" : 0,
+\       "hook/close_buffer/enable_exit" : 0,
+\       "hook/close_quickfix/enable_exit" : 1,
+\       "hook/redraw_unite_quickfix/enable_exit" : 0,
+\       "hook/close_unite_quickfix/enable_exit" : 1,
+\   },
+\
+\   "cpp/watchdogs_checker" : {
+\       "hook/add_include_option/enable" : 1,
+\       "type" : "watchdogs_checker/g++",
+\   },
+\
+\   "haskell/watchdogs_checker" : {
+\       "type" : "watchdogs_checker/hlint",
+\   },
+\   
+\   "watchdogs_checker/msvc" : {
+\       "hook/msvc_compiler/enable" : 1,
+\       "hook/msvc_compiler/target" : "c:/program files/microsoft visual studio 10.0",
+\       "hook/output_encode/encoding" : "sjis",
+\       "cmdopt" : "/Zs ",
+\   },
+\
+\   "watchdogs_checker/g++" : {
+\       "cmdopt" : "-std=gnu++0x -Wall",
+\   },
+\
+\   "watchdogs_checker/clang++" : {
+\       "cmdopt" : "-std=gnu++0x -Wall",
+\   },
+\
+\   "python/watchdogs_checker" : {
+\       "type" : "watchdogs_checker/pyflakes",
+\   },
+\   
+\   "watchdogs_checker/pyflakes" : {
+\       "command" : "pyflakes",
+\   },
+\
+\}
+
+call watchdogs#setup(g:quickrun_config)
+
+augroup my_watchdogs
+autocmd!
+autocmd InsertLeave,BufWritePost,TextChanged *.py WatchdogsRun
+  autocmd BufRead,BufNewFile *.py WatchdogsRun
+augroup END
 
