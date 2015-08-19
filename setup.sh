@@ -36,4 +36,3 @@ bit=$(uname -m)
 #Install Dropbox
 #wget -O - "https://www.dropbox.com/download?plat=lnx.${bit}" | tar xzf -
 #.dropbox-dist/dropboxd
-
