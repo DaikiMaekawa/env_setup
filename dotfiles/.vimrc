@@ -103,10 +103,19 @@ if has('vim_starting')
     NeoBundle 'soramugi/auto-ctags.vim'
     NeoBundle 'tsukkee/unite-tag'
     NeoBundle 'thinca/vim-quickrun'
-    NeoBundle 'Shougo/vimproc'
+    NeoBundle 'Shougo/vimproc.vim', {
+    \ 'build' : {
+    \     'windows' : 'tools\\update-dll-mingw',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make -f make_mac.mak',
+    \     'linux' : 'make',
+    \     'unix' : 'gmake',
+    \    },
+    \ }
     NeoBundle 'osyo-manga/shabadou.vim'
     NeoBundle 'osyo-manga/vim-watchdogs'
     NeoBundle 'cohama/vim-hier'
+    NeoBundle 'Shougo/vimshell.vim'
     call neobundle#end()
 
 endif
