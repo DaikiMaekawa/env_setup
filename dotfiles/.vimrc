@@ -112,7 +112,6 @@ if has('vim_starting')
     \    },
     \ }
     NeoBundle 'osyo-manga/shabadou.vim'
-    NeoBundle 'osyo-manga/vim-watchdogs'
     NeoBundle 'cohama/vim-hier'
     NeoBundle 'Shougo/vimshell.vim'
     NeoBundle 'Valloric/YouCompleteMe', {
@@ -123,6 +122,7 @@ if has('vim_starting')
     \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
     \    }
     \ }
+    NeoBundle 'taketwo/vim-ros'
     
     call neobundle#end()
 
@@ -267,4 +267,4 @@ let g:quickrun_config = {
 \}
 
 " YCM
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf_ros.py'
+let g:ycm_global_ycm_extra_conf = '~/myenv-setup/dotfiles/.ycm_extra_conf_ros.py'
