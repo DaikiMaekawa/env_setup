@@ -61,12 +61,73 @@ default_flags = [
     '-Wall',
     '-Wextra',
     '-Werror',
-    '-Wc++98-compat',
-    '-Wno-long-long',
-    '-Wno-variadic-macros',
+    # '-Wc++98-compat',
+    # '-Wno-long-long',
+    # '-Wno-variadic-macros',
     '-fexceptions',
-    #'-DNDEBUG',
-    '-DUSE_CLANG_COMPLETER',
+    '-DNDEBUG',
+    # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know
+    # which language to use when compiling headers. So it will guess. Badly. So
+    # C++ headers will be compiled as C headers. You don't want that so ALWAYS
+    # specify a "-std=<something>".
+    # For a C project, you would set this to something like 'c99' instead of
+    # 'c++11'.
+    '-std=c++03',
+    #'-std=c++11',
+    # ...and the same thing goes for the magic -x option which specifies the
+    # language that the files to be compiled are written in. This is mostly
+    # relevant for c++ headers.
+    # For a C project, you would set this to 'c' instead of 'c++'.
+    '-x',
+    'c++',
+    '-I',
+    '.',
+
+    # include third party libraries
+    '-isystem',
+    '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/BoostParts',
+    '-isystem',
+    # This path will only work on OS X, but extra paths that don't exist are not
+    # harmful
+    '/System/Library/Frameworks/Python.framework/Headers',
+    '-isystem',
+    '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/llvm/include',
+    '-isystem',
+    '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/llvm/tools/clang/include',
+    '-I',
+    '.',
+    '-I',
+    '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/ClangCompleter',
+    '-isystem',
+    '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/tests/gmock/gtest',
+    '-isystem',
+    '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/tests/gmock/gtest/include',
+    '-isystem',
+    '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/tests/gmock',
+    '-isystem',
+    '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/tests/gmock/include',
+    
+    '-isystem',
+    '/usr/bin/gcc',
+    '-isystem',
+    '/usr/bin/gcc-4.8'
+    '-isystem',
+    '/usr/include/eigen3',
+    '-isystem',
+    '-isystem', '/usr/include/c++/4.8.4/tr1',
+]
+
+"""
+default_flags = [
+    '-Wall',
+    '-Wextra',
+    '-Werror',
+    #'-Wc++98-compat',
+    #'-Wno-long-long',
+    #'-Wno-variadic-macros',
+    '-fexceptions',
+    '-DNDEBUG',
+    #'-DUSE_CLANG_COMPLETER',
     
     # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know
     # which language to use when compiling headers. So it will guess. Badly. So
@@ -74,9 +135,8 @@ default_flags = [
     # specify a "-std=<something>".
     # For a C project, you would set this to something like 'c99' instead of
     # 'c++11'.
-    #'-std=c++03',
+    '-std=c++03',
     #'-std=c++11',
-    '-std=c++98',
     
     # ...and the same thing goes for the magic -x option which specifies the
     # language that the files to be compiled are written in. This is mostly
@@ -84,15 +144,26 @@ default_flags = [
     # For a C project, you would set this to 'c' instead of 'c++'.
     '-x',
     'c++',
+    
+    #for testing
+    '-I',
+    '.',
         
     #eigen
     #'/usr/include/eigen3',
 
     # include third party libraries
+    '-isystem', '/usr/bin/gcc',
+    '-isystem', '/usr/bin/gcc-4.8',
+    '-isystem', '/usr/include/eigen3',
     '-isystem', '/usr/include/c++/4.8.4/tr1',
+    '-isystem', '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/llvm/include',
+    '-isystem', '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/ClangCompleter',
+    '-isystem', '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/BoostParts',
 
     '-I', '.',
 ]
+"""
 
 flags = default_flags + GetRosIncludeFlags()
 
