@@ -107,16 +107,13 @@ default_flags = [
     '-isystem',
     '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/tests/gmock/include',
     
-    '-isystem',
-    '/usr/bin/gcc',
-    '-isystem',
-    '/usr/bin/gcc-4.8'
-    '-isystem',
-    '/usr/include/eigen3',
-    '-isystem',
+    '-isystem', '/usr/bin/gcc',
+    '-isystem', '/usr/bin/gcc-4.8'
+    '-isystem', '/usr/include/eigen3',
+#    '-isystem',
     '-isystem', '/usr/include/c++/4.8.4/tr1',
     '-isystem', '/usr/include/gazebo-5.1',
-    '-isystem', '/usr/include/pcl-1.7',
+    '-I', '/usr/include/pcl-1.7',
 ]
 
 """
