@@ -9,7 +9,7 @@ on_failure: change #[always|never|change] # default: always
 script: 
 - pwd
 - ls
-- apt-get install rubygems-integration
+- apt-get install ruby1.9.1-dev rubygems1.9.1
 - gem install itamae
 - itamae local install_recipe.rb
 
