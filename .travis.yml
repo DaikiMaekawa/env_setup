@@ -19,7 +19,7 @@ script:
 - rbenv global 2.1.3
 - rbenv rehash
 - ruby --version
-- sudo gem install itamae
-- sudo itamae local install_recipe.rb
+- gem install itamae
+- itamae local -n install_recipe.rb
 
 
