@@ -1,4 +1,4 @@
-## myenv-setup
+## daiki-env-setup
 
 Setup Daiki Maekawa's environment
 
@@ -6,7 +6,7 @@ Setup Daiki Maekawa's environment
 ## Usage
 
 ```sh
-$ ./setup.sh
+$ itamae local install_recipe.rb
 ```
 
 ## Documents
