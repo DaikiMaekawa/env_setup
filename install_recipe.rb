@@ -11,3 +11,8 @@ when "redhat", "fedora"
 else
     # something
 end
+
+# link to dotfiles
+link "/home/" + node[:current_user] do 
+    to "daiki-env-setup/dotfiles/.vimrc"
+end
