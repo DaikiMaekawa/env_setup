@@ -19,3 +19,8 @@ link home_dir do
     to "daiki-env-setup/dotfiles/.vimrc"
     not_if 'test -e %s' % home_dir + "/.vimrc"
 end
+
+link home_dir do
+    to "daiki-env-setup/dotfiles/.screenrc"
+    not_if 'test -e %s' % home_dir + "/.screenrc"
+end
