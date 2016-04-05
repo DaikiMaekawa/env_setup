@@ -1,4 +1,5 @@
-home_dir = "/home/" + node[:current_user] # ohai option is required
+HOME_DIR = "/home/" + node[:current_user] # ohai option is required
+CURRENT_SOURCE_DIR = File.expand_path(File.dirname(__FILE__))
 
 case node[:platform]
 when "debian", "ubuntu"
@@ -15,12 +16,12 @@ else
 end
 
 # link to dotfiles
-link home_dir do 
-    to "daiki-env-setup/dotfiles/.vimrc"
-    not_if 'test -e %s' % home_dir + "/.vimrc"
+link HOME_DIR do 
+    to CURRENT_SOURCE_DIR + "/dotfiles/.vimrc"
+    not_if 'test -e %s' % HOME_DIR + "/.vimrc"
 end
 
-link home_dir do
-    to "daiki-env-setup/dotfiles/.screenrc"
-    not_if 'test -e %s' % home_dir + "/.screenrc"
+link HOME_DIR do
+    to CURRENT_SOURCE_DIR + "/dotfiles/.screenrc"
+    not_if 'test -e %s' % HOME_DIR + "/.screenrc"
 end
