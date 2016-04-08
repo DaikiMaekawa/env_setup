@@ -1,4 +1,4 @@
-HOME_DIR = "/home/" + node[:current_user] # ohai option is required
+HOME_DIR = Dir.home
 CURRENT_SOURCE_DIR = File.expand_path(File.dirname(__FILE__))
 
 case node[:platform]
