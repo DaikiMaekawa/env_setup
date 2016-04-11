@@ -29,3 +29,8 @@ link HOME_DIR do
     to CURRENT_SOURCE_DIR + "/dotfiles/.screenrc"
     not_if 'test -e %s' % HOME_DIR + "/.screenrc"
 end
+
+link HOME_DIR do
+    to CURRENT_SOURCE_DIR + "/dotfiles/.ycm_extra_conf_ros.py"
+    not_if 'test -e %s' % HOME_DIR + "/.ycm_extra_conf_ros.py"
+end
