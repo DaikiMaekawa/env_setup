@@ -9,6 +9,6 @@ on_failure: change #[always|never|change] # default: always
 script: 
 - pwd
 - ls
-- ./configure.sh
+- source configure.sh
 - itamae local -n install_recipe.rb
 
