@@ -71,7 +71,8 @@ default_flags = [
     # C++ headers will be compiled as C headers. You don't want that so ALWAYS
     # specify a "-std=<something>".
     # For a C project, you would set this to something like 'c99' instead of
-    # 'c++11'.
+    #'-stdlib=libc++',
+    # 'c++11',
     '-std=c++03',
     #'-std=c++11',
     # ...and the same thing goes for the magic -x option which specifies the
@@ -107,13 +108,13 @@ default_flags = [
     '-isystem',
     '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/tests/gmock/include',
     
-    '-isystem', '/usr/bin/gcc',
-    '-isystem', '/usr/bin/gcc-4.8'
-    '-isystem', '/usr/include/eigen3',
+#    '-isystem', '/usr/bin/gcc',
+#    '-isystem', '/usr/bin/gcc-4.8'
+#    '-isystem', '/usr/include/eigen3',
 #    '-isystem',
-    '-isystem', '/usr/include/c++/4.8.4/tr1',
-    '-isystem', '/usr/include/gazebo-5.1',
-    '-I', '/usr/include/pcl-1.7',
+#    '-isystem', '/usr/include/c++/4.8.4/tr1',
+#    '-isystem', '/usr/include/gazebo-5.1',
+#    '-I', '/usr/include/pcl-1.7',
 ]
 
 """
