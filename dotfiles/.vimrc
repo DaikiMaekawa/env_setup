@@ -94,7 +94,6 @@ if has('vim_starting')
     NeoBundle 'Shougo/unite.vim'
     "NeoBundle 'tpope/vim-fugitive'
     NeoBundle 'tomtom/tcomment_vim'
-    "NeoBundle 'nethanaelkane/vim-indent-guides'
     NeoBundle 'tyru/caw.vim'
     NeoBundle 't9md/vim-quickhl'
     NeoBundle 'majutsushi/tagbar'
@@ -181,22 +180,6 @@ if has('statusline')
   set statusline+=%*
   set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
-
-"" auto run vim-indent-guides
-"" syntastic.vim
-
-" let g:syntastic_auto_loc_list=2
-
-" let g:syntastic_mode_map = {'mode': 'passive'}
-" augroup AutoSyntastic
-"     autocmd!
-"     autocmd InsertLeave, TextChanged * call s:syntastic()
-" augroup END
-" function! s:syntastic()
-"     w
-"     SyntasticCheck
-" endfunction
-
 
 "" caw (comment out tool)
 nmap \c <Plug>(caw:I:toggle)
