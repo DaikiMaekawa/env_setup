@@ -15,6 +15,10 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "python-pip" do
+        options "-y"
+    end
+
 when "redhat", "fedora"
     # redhat is including CentOS
     # something
