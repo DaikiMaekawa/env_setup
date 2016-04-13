@@ -122,7 +122,7 @@ if has('vim_starting')
     \    }
     \ }
     NeoBundle 'taketwo/vim-ros'
-    "NeoBundle 'yuratomo/dbg.vim'
+    NeoBundle 'Shougo/vimfiler.vim'
     
     call neobundle#end()
 
