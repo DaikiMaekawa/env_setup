@@ -94,7 +94,6 @@ if has('vim_starting')
     NeoBundle 'Shougo/unite.vim'
     "NeoBundle 'tpope/vim-fugitive'
     NeoBundle 'tomtom/tcomment_vim'
-    "NeoBundle 'nethanaelkane/vim-indent-guides'
     NeoBundle 'tyru/caw.vim'
     NeoBundle 't9md/vim-quickhl'
     NeoBundle 'majutsushi/tagbar'
@@ -113,6 +112,7 @@ if has('vim_starting')
     "NeoBundle 'osyo-manga/shabadou.vim'
     "NeoBundle 'cohama/vim-hier'
     "NeoBundle 'Shougo/vimshell.vim'
+    NeoBundle 'Yggdroot/indentLine'
     NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build' : {
     \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
@@ -154,6 +154,11 @@ filetype indent on
 " au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 """"""""""""""""""""""""""""""
 
+" indentLine
+let g:indentLine_faster = 1
+nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
+let g:indentLine_color_term = 239
+
 " from https://github.com/spf13/spf13-vim/blob/master/.vimrc
 if has('statusline')
   set laststatus=2
@@ -175,22 +180,6 @@ if has('statusline')
   set statusline+=%*
   set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
-
-"" auto run vim-indent-guides
-"" syntastic.vim
-
-" let g:syntastic_auto_loc_list=2
-
-" let g:syntastic_mode_map = {'mode': 'passive'}
-" augroup AutoSyntastic
-"     autocmd!
-"     autocmd InsertLeave, TextChanged * call s:syntastic()
-" augroup END
-" function! s:syntastic()
-"     w
-"     SyntasticCheck
-" endfunction
-
 
 "" caw (comment out tool)
 nmap \c <Plug>(caw:I:toggle)
