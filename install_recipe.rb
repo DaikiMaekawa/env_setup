@@ -19,6 +19,14 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "trash-cli" do
+        options "-y"
+    end
+
+    package "vim" do
+        options "-y"
+    end
+
 when "redhat", "fedora"
     # redhat is including CentOS
     # something
