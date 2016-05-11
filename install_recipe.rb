@@ -61,3 +61,13 @@ link HOME_DIR + "/.vim/colors" do
     not_if 'test -e %s' % HOME_DIR + "/.vim/colors/molokai.vim"
 end
 
+# install neobundle
+
+directory HOME_DIR + "/.vim/bundle" do
+    mode "775"
+    not_if 'test -e %s' % HOME_DIR + "/.vim/bundle"
+end
+
+git HOME_DIR + "/.vim/bundle/neobundle.vim" do
+    repository "git://github.com/Shougo/neobundle.vim"
+end
