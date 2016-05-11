@@ -51,7 +51,13 @@ link HOME_DIR do
     not_if 'test -e %s' % HOME_DIR + "/.ycm_extra_conf_ros.py"
 end
 
-link HOME_DIR + "/.vim" do
-    to CURRENT_SOURCE_DIR + "/schemes/molokai/colors"
+directory HOME_DIR + "/.vim/colors" do
+    mode "775"
     not_if 'test -e %s' % HOME_DIR + "/.vim/colors"
 end
+
+link HOME_DIR + "/.vim/colors" do
+    to CURRENT_SOURCE_DIR + "/schemes/molokai/molokai.vim"
+    not_if 'test -e %s' % HOME_DIR + "/.vim/colors/molokai.vim"
+end
+
