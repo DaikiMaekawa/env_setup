@@ -1,7 +1,8 @@
+require 'etc'
+
 HOME_DIR = Dir.home
 CURRENT_SOURCE_DIR = File.expand_path(File.dirname(__FILE__))
-#CURRENT_USER_NAME = `hostname`.chop
-CURRENT_USER_NAME = "daikimaekawa"
+CURRENT_USER_NAME = Etc.getlogin
 puts "CURRENT_USER_NAME = " + CURRENT_USER_NAME
 
 case node[:platform]
