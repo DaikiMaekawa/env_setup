@@ -11,6 +11,14 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "gdb" do
+        options "-y"
+    end
+
+    package "gdbserver" do
+        options "-y"
+    end
+
     package "git" do
         options "-y"
     end
@@ -28,6 +36,10 @@ when "debian", "ubuntu"
     end
 
     package "vim" do
+        options "-y"
+    end
+
+    package "doxygen" do
         options "-y"
     end
 
