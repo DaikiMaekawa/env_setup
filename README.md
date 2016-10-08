@@ -1,6 +1,6 @@
 ## daiki-env-setup
 
-Setup Daiki Maekawa's environment
+Setup Daiki Maekawa's environment with Itamae.
 
 [![Build Status](https://travis-ci.org/DaikiMaekawa/daiki-env-setup.svg?branch=master)](https://travis-ci.org/DaikiMaekawa/daiki-env-setup)
 
