@@ -15,3 +15,6 @@ sudo apt-get install python-rosinstall
 
 sudo aptitude install ros-hydro-moveit-full python-wstool
 
+#Install indigo to Ubuntu 14.04
+
+#TODO
