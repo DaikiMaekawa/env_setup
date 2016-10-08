@@ -15,7 +15,7 @@ https://github.com/DaikiMaekawa/myenv-setup/tree/master/doc
 
 ## License
 
-Copyright (c) 2014, [Daiki Maekawa](http://daikimaekawa.strikingly.com/). (MIT License)
+Copyright (c) 2014 - 2015, [Daiki Maekawa](http://daikimaekawa.strikingly.com/). (MIT License)
 
 See LICENSE for more info.
 
