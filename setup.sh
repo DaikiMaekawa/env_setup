@@ -4,10 +4,11 @@ set -e
 image_viewer="mirage"
 image_editor="pinta"
 desktop_capture="kazam"
+pdf_viewer="imagemagick"
 
 sudo apt-get update
 sudo apt-get install aptitude
-sudo aptitude install git screen vim rubygems1.9.1 ruby1.9.1-dev ipython g++ ${image_viewer} ${image_editor} ${desktop_capture}
+sudo aptitude install git screen vim rubygems1.9.1 ruby1.9.1-dev ipython g++ ${pdf_viewer} ${image_viewer} ${image_editor} ${desktop_capture}
 #./ros_setup.sh
 
 #link dotfiles
