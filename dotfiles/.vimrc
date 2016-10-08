@@ -113,6 +113,7 @@ if has('vim_starting')
     "NeoBundle 'osyo-manga/shabadou.vim'
     "NeoBundle 'cohama/vim-hier'
     "NeoBundle 'Shougo/vimshell.vim'
+    NeoBundle 'Yggdroot/indentLine'
     NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build' : {
     \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
@@ -153,6 +154,11 @@ filetype indent on
 " au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 " au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 """"""""""""""""""""""""""""""
+
+" indentLine
+let g:indentLine_faster = 1
+nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
+let g:indentLine_color_term = 239
 
 " from https://github.com/spf13/spf13-vim/blob/master/.vimrc
 if has('statusline')
