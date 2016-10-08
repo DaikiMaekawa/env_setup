@@ -22,6 +22,9 @@ git config --global user.email "method_aspect_card@yahoo.co.jp"
 sudo gem install rdoc
 sudo gem install jekyll
 
+#Change folder name from Japanese to English.
+LANG=c xdg-user-dirs-gtk-update
+
 bit=$(uname -m)
 
 #Install Dropbox
