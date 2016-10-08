@@ -11,7 +11,7 @@ $ itamae local install_recipe.rb
 
 ## Documents
 
-https://github.com/DaikiMaekawa/myenv-setup/tree/master/doc
+[doc](doc/)
 
 ## License
 
