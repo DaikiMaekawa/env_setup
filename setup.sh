@@ -5,7 +5,7 @@ image_viewer="mirage"
 image_editor="pinta"
 desktop_capture="kazam"
 pdf_viewer="imagemagick"
-video_editor="pitivi"
+video_editor="kdenlive"
 
 sudo apt-get update
 sudo apt-get install aptitude
