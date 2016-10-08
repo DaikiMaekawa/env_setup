@@ -9,8 +9,11 @@ video_editor="kdenlive"
 
 sudo apt-get update -qq
 sudo apt-get install -y aptitude
-sudo aptitude install -y nkf git screen vim rubygems1.9.1 ruby1.9.1-dev ipython g++ trash-cli ${pdf_viewer} ${image_viewer} ${image_editor} ${desktop_capture} ${video_editor}
+sudo aptitude install -y nkf git screen vim rubygems1.9.1 ruby1.9.1-dev ipython g++ trash-cli python-pip ${pdf_viewer} ${image_viewer} ${image_editor} ${desktop_capture} ${video_editor}
 #./ros_setup.sh
+
+#Install python debugger
+sudo pip install pudb
 
 #link dotfiles
 ln -sf $PWD/dotfiles/.vimrc ~/.vimrc
