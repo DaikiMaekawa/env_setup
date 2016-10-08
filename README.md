@@ -11,11 +11,10 @@ $ itamae local install_recipe.rb
 
 ## Documents
 
-https://github.com/DaikiMaekawa/myenv-setup/tree/master/doc
+[doc](doc/)
 
 ## License
 
 Copyright (c) 2014 - 2015, [Daiki Maekawa](http://daikimaekawa.strikingly.com/). (MIT License)
 
 See LICENSE for more info.
-
