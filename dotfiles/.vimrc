@@ -129,6 +129,8 @@ if has('vim_starting')
 
 endif
 
+let g:neobundle#install_process_timeout = 1500
+
 filetype plugin indent on     " required!
 filetype indent on
 
@@ -273,6 +275,17 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf_ros.py'
 let g:ycm_semantic_triggers = {
 \   'roslaunch' : ['="', '$(', '/'],
 \   'rosmsg,rossrv,rosaction' : ['re!^'],
+\   'c' : ['->', '.'],
+\   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+\             're!\[.*\]\s'],
+\   'ocaml' : ['.', '#'],
+\   'cpp,objcpp' : ['->', '.', '::'],
+\   'perl' : ['->'],
+\   'php' : ['->', '::'],
+\   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+\   'ruby' : ['.', '::'],
+\   'lua' : ['.', ':'],
+\   'erlang' : [':'],
 \ }
 
 " dgb.vim
