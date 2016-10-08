@@ -2,7 +2,7 @@
 set -e
 
 image_viewer="mirage"
-image_editor="pinta"
+image_editor="kolourpaint4"
 desktop_capture="kazam"
 pdf_viewer="imagemagick"
 video_editor="kdenlive"
