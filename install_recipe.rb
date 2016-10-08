@@ -1,4 +1,4 @@
-home_dir = "/home/" + node[:current_user]
+home_dir = "/home/" + node[:current_user] # ohai option is required
 
 case node[:platform]
 when "debian", "ubuntu"
