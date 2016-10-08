@@ -73,8 +73,8 @@ default_flags = [
     # For a C project, you would set this to something like 'c99' instead of
     #'-stdlib=libc++',
     # 'c++11',
-    '-std=c++03',
-    #'-std=c++11',
+    #'-std=c++03',
+    '-std=c++11',
     # ...and the same thing goes for the magic -x option which specifies the
     # language that the files to be compiled are written in. This is mostly
     # relevant for c++ headers.
@@ -113,7 +113,7 @@ default_flags = [
 #    '-isystem', '/usr/include/eigen3',
 #    '-isystem',
 #    '-isystem', '/usr/include/c++/4.8.4/tr1',
-#    '-isystem', '/usr/include/gazebo-5.1',
+    '-isystem', '/usr/include/gazebo-5.3',
 #    '-I', '/usr/include/pcl-1.7',
 ]
 
