@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
