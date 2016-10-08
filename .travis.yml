@@ -12,3 +12,4 @@ script:
 - apt-get install rubygems-integration
 - gem install itamae
 - itamae local install_recipe.rb
+
