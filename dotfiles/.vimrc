@@ -268,7 +268,7 @@ let g:quickrun_config = {
 \}
 
 " YCM
-let g:ycm_global_ycm_extra_conf = '~/myenv-setup/dotfiles/.ycm_extra_conf_ros.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf_ros.py'
 
 let g:ycm_semantic_triggers = {
 \   'roslaunch' : ['="', '$(', '/'],
