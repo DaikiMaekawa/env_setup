@@ -91,8 +91,7 @@ if has('vim_starting')
 
     " originalrepos on github
     NeoBundle 'Shougo/neobundle.vim'
-    "NeoBundle 'Shougo/unite.vim'
-    NeoBundle 'scrooloose/nerdtree'
+    NeoBundle 'Shougo/unite.vim'
     "NeoBundle 'tpope/vim-fugitive'
     NeoBundle 'tomtom/tcomment_vim'
     "NeoBundle 'nethanaelkane/vim-indent-guides'
@@ -192,8 +191,6 @@ endif
 "     SyntasticCheck
 " endfunction
 
-"" nerdtree
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 "" caw (comment out tool)
 nmap \c <Plug>(caw:I:toggle)
@@ -294,11 +291,5 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
-" dgb.vim
-let g:dbg#command_shell = 'cmd.exe'
-let g:dbg#shell_prompt = '> '
-
-let g:dbg#command_jdb = 'jdb'
-let g:dbg#command_gdb = 'gdb'
-let g:dbg#command_fdb = 'fdb'
-let g:dbg#command_python = 'python'
+" vimfiler
+nnoremap <silent><C-e> :VimFilerExplore -split -winwidth=30 -find -no-quit<CR>
