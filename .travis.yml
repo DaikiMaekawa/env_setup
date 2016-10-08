@@ -8,8 +8,6 @@ on_success: change #[always|never|change] # default: change
 on_failure: change #[always|never|change] # default: always
 before_install: 
 - sudo apt-get update -qq
-before_script: 
-- source /opt/ros/$ROS_DISTRO/setup.bash
 script: 
 - pwd
 - ls
