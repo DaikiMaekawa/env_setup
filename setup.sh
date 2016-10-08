@@ -17,3 +17,8 @@ git config --global user.email "method_aspect_card@yahoo.co.jp"
 #Installing Jekyll with gem
 sudo gem install rdoc
 sudo gem install jekyll
+
+#Install Dropbox(32bit)
+wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
+.dropbox-dist/dropboxd
+
