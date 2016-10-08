@@ -9,4 +9,6 @@ on_failure: change #[always|never|change] # default: always
 script: 
 - pwd
 - ls
-- source ./setup.sh
+- apt-get install rubygems-integration
+- gem install itamae
+- itamae local install_recipe.rb
