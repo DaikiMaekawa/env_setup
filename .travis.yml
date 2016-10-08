@@ -9,7 +9,6 @@ on_failure: change #[always|never|change] # default: always
 script: 
 - pwd
 - ls
-- sudo ./configure.sh
 - gem install itamae
 - sudo itamae local install_recipe.rb
 
