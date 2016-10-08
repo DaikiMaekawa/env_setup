@@ -91,29 +91,29 @@ if has('vim_starting')
 
     " originalrepos on github
     NeoBundle 'Shougo/neobundle.vim'
-    NeoBundle 'Shougo/unite.vim'
+    "NeoBundle 'Shougo/unite.vim'
     NeoBundle 'scrooloose/nerdtree'
-    NeoBundle 'tpope/vim-fugitive'
+    "NeoBundle 'tpope/vim-fugitive'
     NeoBundle 'tomtom/tcomment_vim'
-    NeoBundle 'nethanaelkane/vim-indent-guides'
+    "NeoBundle 'nethanaelkane/vim-indent-guides'
     NeoBundle 'tyru/caw.vim'
     NeoBundle 't9md/vim-quickhl'
     NeoBundle 'majutsushi/tagbar'
-    NeoBundle 'soramugi/auto-ctags.vim'
-    NeoBundle 'tsukkee/unite-tag'
-    NeoBundle 'thinca/vim-quickrun'
-    NeoBundle 'Shougo/vimproc.vim', {
-    \ 'build' : {
-    \     'windows' : 'tools\\update-dll-mingw',
-    \     'cygwin' : 'make -f make_cygwin.mak',
-    \     'mac' : 'make -f make_mac.mak',
-    \     'linux' : 'make',
-    \     'unix' : 'gmake',
-    \    },
-    \ }
-    NeoBundle 'osyo-manga/shabadou.vim'
-    NeoBundle 'cohama/vim-hier'
-    NeoBundle 'Shougo/vimshell.vim'
+    "NeoBundle 'soramugi/auto-ctags.vim'
+    "NeoBundle 'tsukkee/unite-tag'
+    "NeoBundle 'thinca/vim-quickrun'
+    "NeoBundle 'Shougo/vimproc.vim', {
+    "\ 'build' : {
+    "\     'windows' : 'tools\\update-dll-mingw',
+    "\     'cygwin' : 'make -f make_cygwin.mak',
+    "\     'mac' : 'make -f make_mac.mak',
+    "\     'linux' : 'make',
+    "\     'unix' : 'gmake',
+    "\    },
+    "\ }
+    "NeoBundle 'osyo-manga/shabadou.vim'
+    "NeoBundle 'cohama/vim-hier'
+    "NeoBundle 'Shougo/vimshell.vim'
     NeoBundle 'Valloric/YouCompleteMe', {
     \ 'build' : {
     \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
@@ -123,7 +123,7 @@ if has('vim_starting')
     \    }
     \ }
     NeoBundle 'taketwo/vim-ros'
-    NeoBundle 'yuratomo/dbg.vim'
+    "NeoBundle 'yuratomo/dbg.vim'
     
     call neobundle#end()
 
@@ -287,6 +287,12 @@ let g:ycm_semantic_triggers = {
 \   'lua' : ['.', ':'],
 \   'erlang' : [':'],
 \ }
+
+let g:ycm_filepath_completion_use_working_dir = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 
 " dgb.vim
 let g:dbg#command_shell = 'cmd.exe'
