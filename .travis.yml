@@ -9,6 +9,9 @@ on_failure: change #[always|never|change] # default: always
 script: 
 - pwd
 - ls
+- sudo apt-add-repository ppa:brightbox/ruby-ng
+- sudo apt-get update
+- sudo apt-get install ruby2.2
 - gem install itamae
 - sudo itamae local install_recipe.rb
 
