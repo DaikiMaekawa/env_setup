@@ -9,10 +9,11 @@ on_failure: change #[always|never|change] # default: always
 script: 
 - pwd
 - ls
+- sudo apt-get install python-software-properties
 - sudo apt-add-repository ppa:brightbox/ruby-ng -y
 - sudo apt-get update
-- sudo apt-get install ruby2.2
+- sudo apt-get install ruby2.1 ruby-switch
+- sudo ruby-switch --set ruby2.1
 - ruby --version
 - gem install itamae
 - sudo itamae local install_recipe.rb
-
