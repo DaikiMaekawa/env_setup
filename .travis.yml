@@ -17,3 +17,4 @@ script:
 - ruby --version
 - gem install itamae
 - sudo itamae local install_recipe.rb
+
