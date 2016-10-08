@@ -7,6 +7,10 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "git" do
+        options "-y"
+    end
+
 when "redhat", "fedora"
     # redhat is including CentOS
     # something
