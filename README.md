@@ -1,6 +1,10 @@
-## About
+
+
+## myenv-setup
 
 Setup DaikiMaekawa's environment
+
+[![Build Status](https://travis-ci.org/DaikiMaekawa/myenv-setup.svg?branch=fix-travis)](https://travis-ci.org/DaikiMaekawa/myenv-setup)
 
 ## License
 
