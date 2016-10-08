@@ -98,6 +98,12 @@ if has('vim_starting')
     NeoBundle 'tomtom/tcomment_vim'
     NeoBundle 'nethanaelkane/vim-indent-guides'
     NeoBundle 'tyru/caw.vim'
+    NeoBundle 't9md/vim-quickhl'
+    NeoBundle 'scrooloose/syntastic', {
+        \ "build" : {
+        \ "mac": ["pip install flake8", "npm -g install coffeelint"],
+        \ "unix": ["pip install flake8", "npm -g install coffeelint"]
+        \ }}
     call neobundle#end()
 
 endif
@@ -179,3 +185,15 @@ vmap \c <Plug>(caw:I:toggle)
 
 nmap \C <Plug>(caw:I:uncomment)
 vmap \C <Plug>(caw:I:uncomment)
+
+"" vim-quickhl
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+
+"" molokai.vim
+syntax on
+let g:molokai_original = 1
+set t_Co=256
+colorscheme molokai
