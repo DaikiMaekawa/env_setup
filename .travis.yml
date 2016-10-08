@@ -20,6 +20,6 @@ script:
 - rbenv rehash
 - ruby --version
 - gem install itamae
-- itamae local -n install_recipe.rb
+- itamae local -n --ohai install_recipe.rb
 
 
