@@ -116,6 +116,7 @@ default_flags = [
     '-isystem',
     '-isystem', '/usr/include/c++/4.8.4/tr1',
     '-isystem', '/usr/include/gazebo-5.1',
+    '-isystem', '/usr/include/pcl-1.7',
 ]
 
 """
