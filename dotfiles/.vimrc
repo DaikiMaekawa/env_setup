@@ -97,6 +97,7 @@ if has('vim_starting')
     NeoBundle 'tpope/vim-fugitive'
     NeoBundle 'tomtom/tcomment_vim'
     NeoBundle 'nethanaelkane/vim-indent-guides'
+    NeoBundle 'tyru/caw.vim'
     call neobundle#end()
 
 endif
@@ -170,5 +171,11 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 "" nerdtree
-
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+"" caw (comment out tool)
+nmap \c <Plug>(caw:I:toggle)
+vmap \c <Plug>(caw:I:toggle)
+
+nmap \C <Plug>(caw:I:uncomment)
+vmap \C <Plug>(caw:I:uncomment)
