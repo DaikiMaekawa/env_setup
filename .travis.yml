@@ -12,6 +12,7 @@ script:
 - sudo apt-add-repository ppa:brightbox/ruby-ng -y
 - sudo apt-get update
 - sudo apt-get install ruby2.2
+- ruby --version
 - gem install itamae
 - sudo itamae local install_recipe.rb
 
