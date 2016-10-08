@@ -18,4 +18,3 @@ $ itamae local install_recipe.rb
 Copyright (c) 2014 - 2015, [Daiki Maekawa](http://daikimaekawa.strikingly.com/). (MIT License)
 
 See LICENSE for more info.
-
