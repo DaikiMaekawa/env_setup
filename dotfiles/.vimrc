@@ -277,7 +277,7 @@ let g:ycm_semantic_triggers = {
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_select_completion=['<TAB>']
 let g:ycm_key_list_previous_completion=[]
 
 nnoremap <silent><C-d> :YcmCompleter GoTo<CR>
