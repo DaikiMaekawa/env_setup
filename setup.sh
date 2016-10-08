@@ -21,6 +21,7 @@ git config --global user.email "method_aspect_card@yahoo.co.jp"
 #Installing Jekyll with gem
 sudo gem install rdoc
 sudo gem install jekyll
+sudo gem install therubyracer
 
 #Change folder name from Japanese to English.
 LANG=c xdg-user-dirs-gtk-update
