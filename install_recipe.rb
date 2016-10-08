@@ -11,6 +11,10 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "screen" do
+        options "-y"
+    end
+
 when "redhat", "fedora"
     # redhat is including CentOS
     # something
