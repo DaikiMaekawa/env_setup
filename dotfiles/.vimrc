@@ -123,6 +123,7 @@ if has('vim_starting')
     \    }
     \ }
     NeoBundle 'taketwo/vim-ros'
+    NeoBundle 'yuratomo/dbg.vim'
     
     call neobundle#end()
 
@@ -273,3 +274,12 @@ let g:ycm_semantic_triggers = {
 \   'roslaunch' : ['="', '$(', '/'],
 \   'rosmsg,rossrv,rosaction' : ['re!^'],
 \ }
+
+" dgb.vim
+let g:dbg#command_shell = 'cmd.exe'
+let g:dbg#shell_prompt = '> '
+
+let g:dbg#command_jdb = 'jdb'
+let g:dbg#command_gdb = 'gdb'
+let g:dbg#command_fdb = 'fdb'
+let g:dbg#command_python = 'python'
