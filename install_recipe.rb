@@ -86,13 +86,20 @@ link HOME_DIR + "/.vim/colors" do
     not_if 'test -e %s' % HOME_DIR + "/.vim/colors/molokai.vim"
 end
 
-# install neobundle
-
-execute "download install.sh" do
-    user CURRENT_USER_NAME
-    command "curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh"
+directory HOME_DIR + "/.xmonad" do
+    mode "775"
+    owner CURRENT_USER_NAME
+    group CURRENT_USER_NAME
+    not_if 'test -e %s' % HOME_DIR + "/.xmonad"
 end
 
-execute "sh ./install.sh" do
-    user CURRENT_USER_NAME
+link HOME_DIR + "/.xmonad/xmonad.hs" do
+    to CURRENT_SOURCE_DIR + "/dotfiles/.xmonad/xmonad.hs"
+    not_if 'test -e %s' % HOME_DIR + "/.xmonad/xmonad.hs"
 end
+
+link HOME_DIR + "/.xmobarrc" do
+    to CURRENT_SOURCE_DIR + "/dotfiles/.xmobarrc"
+    not_if 'test -e %s' % HOME_DIR + "/.xmobarrc"
+end
+
