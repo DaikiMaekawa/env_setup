@@ -10,10 +10,6 @@ Setup Daiki Maekawa's environment with Itamae.
 $ itamae local install_recipe.rb
 ```
 
-## Documents
-
-[doc](doc/)
-
 ## License
 
 Copyright (c) 2014 - 2015, [Daiki Maekawa](http://daikimaekawa.strikingly.com/). (MIT License)
