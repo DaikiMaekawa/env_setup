@@ -43,6 +43,14 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "xmonad" do
+        options "-y"
+    end
+
+    package "xmobar" do
+        options "-y"
+    end
+
 when "redhat", "fedora"
     # redhat is including CentOS
     # something
