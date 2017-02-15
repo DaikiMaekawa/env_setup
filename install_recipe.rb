@@ -51,6 +51,10 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "libclang-3.8-dev" do
+        options "-y"
+    end
+
 when "redhat", "fedora"
     # redhat is including CentOS
     # something
