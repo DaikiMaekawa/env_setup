@@ -51,6 +51,14 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "dzen2" do
+        options "-y"
+    end
+
+    package "cabal-install" do
+        options "-y"
+    end
+
     package "libclang-3.8-dev" do
         options "-y"
     end
@@ -113,5 +121,10 @@ end
 link HOME_DIR + "/.xmobarrc" do
     to CURRENT_SOURCE_DIR + "/dotfiles/.xmobarrc"
     not_if 'test -e %s' % HOME_DIR + "/.xmobarrc"
+end
+
+execute "Install xmonad-extras from Haskell package system" do
+    user "root"
+    command "cabal update && cabal install xmonad-extras"
 end
 
