@@ -5,6 +5,10 @@
 -- インポート
 import XMonad
 import XMonad.Hooks.DynamicLog
+import XMonad.Actions.Volume
+import XMonad.Util.Dzen
+import Data.Map    (fromList)
+import Data.Monoid (mappend)
 
 ------------------------------------------------------------------------
 -- こまごました設定
@@ -17,6 +21,22 @@ myModMask       = mod4Mask
 
 -- ワークスペース
 myWorkspaces = ["1:work","2:web"] ++ map show [3..9]
+
+-- Sound Control
+
+alert = dzenConfig centered . show . round
+
+centered =
+        onCurr (center 150 66)
+    >=> font "-*-helvetica-*-r-*-*-64-*-*-*-*-*-*-*"
+    >=> addArgs ["-fg", "#80c0ff"]
+    >=> addArgs ["-bg", "#000040"]
+
+myKeys =  keys defaultConfig `mappend`
+    \c -> fromList [
+        ((0, xK_F6), lowerVolume 4 >>= alert),
+        ((0, xK_F7), raiseVolume 4 >>= alert)
+    ]
 
 ------------------------------------------------------------------------
 -- xmobarの設定
@@ -40,6 +60,10 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 myConfig = defaultConfig {
         terminal           = myTerminal,
         modMask            = myModMask,
-        workspaces         = myWorkspaces
+        workspaces         = myWorkspaces,
+        keys =  keys defaultConfig `mappend`
+            \c -> fromList [
+                ((0, xK_F6), lowerVolume 4 >>= alert),
+                ((0, xK_F7), raiseVolume 4 >>= alert)
+            ]
     }
-
