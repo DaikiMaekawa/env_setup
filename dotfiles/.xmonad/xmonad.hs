@@ -9,6 +9,12 @@ import XMonad.Actions.Volume
 import XMonad.Util.Dzen
 import Data.Map    (fromList)
 import Data.Monoid (mappend)
+import XMonad.Layout.Spacing           -- this makes smart space around windows
+import XMonad.Layout.ResizableTile     -- Resizable Horizontal border
+import XMonad.Layout.DragPane          -- see only two window
+import XMonad.Layout.ToggleLayouts     -- Full window at any time
+import XMonad.Layout.NoBorders         -- In Full mode, border is no use
+import XMonad.Hooks.ManageDocks        -- To enable avoidStruts 
 
 ------------------------------------------------------------------------
 -- こまごました設定
@@ -38,6 +44,12 @@ myKeys =  keys defaultConfig `mappend`
         ((0, xK_F7), raiseVolume 4 >>= alert)
     ]
 
+-- Handle Window behaveior
+
+myLayout = (spacing 18 $ ResizableTall 1 (3/100) (3/5) [])
+            |||  (spacing 2 $ (dragPane Horizontal (1/10) (1/2)))
+            |||  (dragPane Vertical   (1/10) (1/2))
+
 ------------------------------------------------------------------------
 -- xmobarの設定
 
@@ -61,9 +73,6 @@ myConfig = defaultConfig {
         terminal           = myTerminal,
         modMask            = myModMask,
         workspaces         = myWorkspaces,
-        keys =  keys defaultConfig `mappend`
-            \c -> fromList [
-                ((0, xK_F6), lowerVolume 4 >>= alert),
-                ((0, xK_F7), raiseVolume 4 >>= alert)
-            ]
-    }
+        keys = myKeys,
+        layoutHook = toggleLayouts (noBorders Full) $ avoidStruts $ myLayout
+        }
