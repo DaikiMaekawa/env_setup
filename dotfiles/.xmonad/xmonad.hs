@@ -41,7 +41,11 @@ centered =
 myKeys =  keys defaultConfig `mappend`
     \c -> fromList [
         ((0, xK_F6), lowerVolume 4 >>= alert),
-        ((0, xK_F7), raiseVolume 4 >>= alert)
+        ((0, xK_F7), raiseVolume 4 >>= alert),
+
+        -- Brightness Keys
+        ((0, xK_F9), spawn "xbacklight + 10 -time 100 -steps 1"),
+        ((0, xK_F8), spawn "xbacklight - 10 -time 100 -steps 1")
     ]
 
 -- Handle Window behaveior
