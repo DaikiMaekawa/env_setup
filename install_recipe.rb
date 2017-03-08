@@ -42,6 +42,8 @@ when "debian", "ubuntu"
     package "doxygen" do
         options "-y"
     end
+    
+    # xmonad dependencies
 
     package "xmonad" do
         options "-y"
@@ -55,9 +57,15 @@ when "debian", "ubuntu"
         options "-y"
     end
 
+    package "xbacklight" do
+        options "-y"
+    end
+
     package "cabal-install" do
         options "-y"
     end
+
+    # end
 
     package "libclang-3.8-dev" do
         options "-y"
