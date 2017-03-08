@@ -29,8 +29,7 @@ def GetRosIncludePaths():
         return []
     rospack = RosPack()
     includes = []
-    #includes.append(os.path.expandvars('$ROS_WORKSPACE') + '/devel/include')
-    includes.append('~/catkin_ws/devel/include')
+    includes.append(os.path.expandvars('$ROS_WORKSPACE') + '/devel/include')
     for p in rospack.list():
         if os.path.exists(rospack.get_path(p) + '/include'):
             includes.append(rospack.get_path(p) + '/include')
@@ -129,6 +128,7 @@ def GetCompilationDatabaseFolder(filename):
     The compilation_commands.json for the given file is returned by getting
     the package the file belongs to.
     """
+    
     try:
         import rospkg
     except ImportError:
@@ -136,7 +136,7 @@ def GetCompilationDatabaseFolder(filename):
     pkg_name = rospkg.get_package_name(filename)
     if not pkg_name:
         return ''
-    dir = (os.path.expandvars('~/catkin_ws') +
+    dir = (os.path.expandvars('$ROS_WORKSPACE') +
            os.path.sep +
            'build' +
            os.path.sep +
