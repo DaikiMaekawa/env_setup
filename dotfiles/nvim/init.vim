@@ -9,6 +9,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 't1mxg0d/vim-lucario'
 
 call vundle#end()
 
@@ -81,3 +82,7 @@ let g:ycm_key_list_previous_completion=[]
 
 nnoremap <silent><C-d> :YcmCompleter GoTo<CR>
 
+" colorscheme
+syntax enable
+set number
+colorscheme lucario
