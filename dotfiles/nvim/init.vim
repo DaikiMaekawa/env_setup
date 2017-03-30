@@ -52,6 +52,10 @@ set softtabstop=4
 set expandtab
 set number
 
+" Interactive replacement
+set inccommand=split
+set hlsearch
+
 " let test = jobstart('/home/daikimaekawa/neovim.cpp/build/test', {'rpc': v:true})
 
 " YCM
