@@ -2,7 +2,7 @@
 
 Setup Daiki Maekawa's environment with Itamae.
 
-[![Build Status](https://travis-ci.org/DaikiMaekawa/env-setup.svg?branch=master)](https://travis-ci.org/DaikiMaekawa/env-setup)
+[![Build Status](https://travis-ci.org/DaikiMaekawa/env_setup.svg?branch=master)](https://travis-ci.org/DaikiMaekawa/env_setup)
 
 ## Usage
 
