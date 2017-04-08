@@ -42,6 +42,34 @@ when "debian", "ubuntu"
     package "doxygen" do
         options "-y"
     end
+    
+    # xmonad dependencies
+
+    package "xmonad" do
+        options "-y"
+    end
+
+    package "xmobar" do
+        options "-y"
+    end
+
+    package "dzen2" do
+        options "-y"
+    end
+
+    package "xbacklight" do
+        options "-y"
+    end
+
+    package "cabal-install" do
+        options "-y"
+    end
+
+    # end
+
+    package "libclang-3.8-dev" do
+        options "-y"
+    end
 
 when "redhat", "fedora"
     # redhat is including CentOS
@@ -86,13 +114,25 @@ link HOME_DIR + "/.vim/colors" do
     not_if 'test -e %s' % HOME_DIR + "/.vim/colors/molokai.vim"
 end
 
-# install neobundle
-
-execute "download install.sh" do
-    user CURRENT_USER_NAME
-    command "curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh"
+directory HOME_DIR + "/.xmonad" do
+    mode "775"
+    owner CURRENT_USER_NAME
+    group CURRENT_USER_NAME
+    not_if 'test -e %s' % HOME_DIR + "/.xmonad"
 end
 
-execute "sh ./install.sh" do
-    user CURRENT_USER_NAME
+link HOME_DIR + "/.xmonad/xmonad.hs" do
+    to CURRENT_SOURCE_DIR + "/dotfiles/.xmonad/xmonad.hs"
+    not_if 'test -e %s' % HOME_DIR + "/.xmonad/xmonad.hs"
 end
+
+link HOME_DIR + "/.xmobarrc" do
+    to CURRENT_SOURCE_DIR + "/dotfiles/.xmobarrc"
+    not_if 'test -e %s' % HOME_DIR + "/.xmobarrc"
+end
+
+execute "Install xmonad-extras from Haskell package system" do
+    user "root"
+    command "cabal update && cabal install xmonad-extras"
+end
+

@@ -1,18 +1,14 @@
 ## daiki-env-setup
 
-Setup Daiki Maekawa's environment
+Setup Daiki Maekawa's environment with Itamae.
 
-[![Build Status](https://travis-ci.org/DaikiMaekawa/daiki-env-setup.svg?branch=master)](https://travis-ci.org/DaikiMaekawa/daiki-env-setup)
+[![Build Status](https://travis-ci.org/DaikiMaekawa/env_setup.svg?branch=master)](https://travis-ci.org/DaikiMaekawa/env_setup)
 
 ## Usage
 
 ```sh
 $ itamae local install_recipe.rb
 ```
-
-## Documents
-
-[doc](doc/)
 
 ## License
 
