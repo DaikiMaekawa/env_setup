@@ -84,52 +84,6 @@ map <silent> [Tag]p :tabprevious<CR>
 set nocompatible
 filetype off
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#begin(expand('~/.vim/bundle/'))
-    NeoBundleFetch 'Shougo/neobundle.vim'
-
-    " originalrepos on github
-    NeoBundle 'Shougo/neobundle.vim'
-    NeoBundle 'Shougo/unite.vim'
-    "NeoBundle 'tpope/vim-fugitive'
-    NeoBundle 'tomtom/tcomment_vim'
-    NeoBundle 'tyru/caw.vim'
-    NeoBundle 't9md/vim-quickhl'
-    NeoBundle 'majutsushi/tagbar'
-    "NeoBundle 'soramugi/auto-ctags.vim'
-    "NeoBundle 'tsukkee/unite-tag'
-    "NeoBundle 'thinca/vim-quickrun'
-    "NeoBundle 'Shougo/vimproc.vim', {
-    "\ 'build' : {
-    "\     'windows' : 'tools\\update-dll-mingw',
-    "\     'cygwin' : 'make -f make_cygwin.mak',
-    "\     'mac' : 'make -f make_mac.mak',
-    "\     'linux' : 'make',
-    "\     'unix' : 'gmake',
-    "\    },
-    "\ }
-    "NeoBundle 'osyo-manga/shabadou.vim'
-    "NeoBundle 'cohama/vim-hier'
-    "NeoBundle 'Shougo/vimshell.vim'
-    NeoBundle 'Yggdroot/indentLine'
-    NeoBundle 'Valloric/YouCompleteMe', {
-    \ 'build' : {
-    \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-    \     'unix' : './install.sh --clang-completer',
-    \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-    \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
-    \    }
-    \ }
-    NeoBundle 'taketwo/vim-ros'
-    NeoBundle 'Shougo/vimfiler.vim'
-    
-    call neobundle#end()
-
-endif
-
-let g:neobundle#install_process_timeout = 1500
-
 filetype plugin indent on     " required!
 filetype indent on
 
@@ -200,87 +154,44 @@ let g:molokai_original = 1
 set t_Co=256
 colorscheme molokai
 
-"" tagbar.vim
-nmap <F8> :TagbarToggle<CR>
+nnoremap <silent><C-d> :LspDefinition<CR>
 
-"" vim-watchdogs
+call plug#begin('~/.vim/plugged')
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'ajh17/vimcompletesme'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Initialize plugin system
+call plug#end()
 
-" let g:watchdogs_check_CursorHold_enable = 1
+autocmd FileType c,cc,cpp,cxx,h,hpp nnoremap <leader>fv :LspCqueryDerived<CR>
+autocmd FileType c,cc,cpp,cxx,h,hpp nnoremap <leader>fc :LspCqueryCallers<CR>
+autocmd FileType c,cc,cpp,cxx,h,hpp nnoremap <leader>fb :LspCqueryBase<CR>
+autocmd FileType c,cc,cpp,cxx,h,hpp nnoremap <leader>fi :LspCqueryVars<CR>
 
-let g:quickrun_config = {
-\   "watchdogs_checker/_" : {
-\       "hook/u_nya_/enable" : 1,
-\       "hook/inu/enable" : 0,
-\       "hook/unite_quickfix/enable" : 0,
-\       "hook/echo/enable" : 0,
-\       "hook/back_buffer/enable" : 0,
-\       "hook/close_unite_quickfix/enable" : 0,
-\       "hook/close_buffer/enable_exit" : 0,
-\       "hook/close_quickfix/enable_exit" : 1,
-\       "hook/redraw_unite_quickfix/enable_exit" : 0,
-\       "hook/close_unite_quickfix/enable_exit" : 1,
-\   },
-\
-\   "cpp/watchdogs_checker" : {
-\       "hook/add_include_option/enable" : 1,
-\       "type" : "watchdogs_checker/g++",
-\   },
-\
-\   "haskell/watchdogs_checker" : {
-\       "type" : "watchdogs_checker/hlint",
-\   },
-\   
-\   "watchdogs_checker/msvc" : {
-\       "hook/msvc_compiler/enable" : 1,
-\       "hook/msvc_compiler/target" : "c:/program files/microsoft visual studio 10.0",
-\       "hook/output_encode/encoding" : "sjis",
-\       "cmdopt" : "/Zs ",
-\   },
-\
-\   "watchdogs_checker/g++" : {
-\       "cmdopt" : "-std=gnu++0x -Wall",
-\   },
-\
-\   "watchdogs_checker/clang++" : {
-\       "cmdopt" : "-std=gnu++0x -Wall",
-\   },
-\
-\   "python/watchdogs_checker" : {
-\       "type" : "watchdogs_checker/pyflakes",
-\   },
-\   
-\   "watchdogs_checker/pyflakes" : {
-\       "command" : "pyflakes",
-\   },
-\
-\}
+if executable('cquery')
+   function! GetCompilationDatabase()
+     let current_file = lsp#utils#get_buffer_path()
+     py import rospkg, vim
+     py name = rospkg.get_package_name(vim.eval('current_file'))
+     py vim.command('let package_name = \'%s\'' % str(name))
+     return join(['/home/daikimaekawa/catkin_ws/build', package_name, "compile_commands.json"], '/')
+   endfunction
+   
+   au User lsp_setup call lsp#register_server({
+         \ 'name': 'cquery',
+         \ 'cmd': {server_info->['cquery']},
+         \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), GetCompilationDatabase()))},
+         \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery/cache' },
+         \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+         \ })
+endif
 
-" YCM
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf_ros.py'
+let g:lsp_signs_enabled = 1         " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
 
-let g:ycm_semantic_triggers = {
-\   'roslaunch' : ['="', '$(', '/'],
-\   'rosmsg,rossrv,rosaction' : ['re!^'],
-\   'c' : ['->', '.'],
-\   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-\             're!\[.*\]\s'],
-\   'ocaml' : ['.', '#'],
-\   'cpp,objcpp' : ['->', '.', '::'],
-\   'perl' : ['->'],
-\   'php' : ['->', '::'],
-\   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-\   'ruby' : ['.', '::'],
-\   'lua' : ['.', ':'],
-\   'erlang' : [':'],
-\ }
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '‼'}
 
-let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-let g:ycm_key_list_select_completion=['<TAB>']
-let g:ycm_key_list_previous_completion=[]
-
-nnoremap <silent><C-d> :YcmCompleter GoTo<CR>
-
-" vimfiler
-nnoremap <silent><C-e> :VimFilerExplore -split -winwidth=30 -find -no-quit<CR>
+let g:asyncomplete_completion_delay=10
