@@ -5,8 +5,8 @@ highlight Folded ctermfg=blue
 highlight SpecialKey cterm=underline ctermfg=darkgrey
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
 match ZenkakuSpace /　/
-set ts=4 sw=4
-set softtabstop=4
+set ts=2 sw=2
+set softtabstop=2
 set expandtab
 
 imap <c-j> <esc>
@@ -31,6 +31,7 @@ set listchars=tab:\ \ ,extends:<,trail:\
 set laststatus=2
 set directory=/tmp
 set wildmode=full:list
+set backspace=indent,eol,start
 " set statusline=[%L]\ %t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
 
 au   BufEnter *   execute ":lcd " . escape(expand("%:p:h"), " #\\")
